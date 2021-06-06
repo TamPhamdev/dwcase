@@ -1,0 +1,60 @@
+@import "./tailwind.css";
+@import "_variables.scss";
+@import "_mixin.scss";
+*, ::before, ::after {
+  box-sizing: border-box;
+}
+html {
+  margin: 0;
+  padding: 0;
+  font-size:$font-size;
+  color: $main-text-color;
+  height: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-family: "Roboto Regular", Helvetica, Arial, sans-serif;
+  scroll-behavior: smooth;
+  outline: none;
+}
+
+body {
+  background-color: #20222b;
+  background-position: top;
+  overflow-x: hidden;
+  position: relative;
+  fill: currentColor !important;
+}
+
+.wrapper {
+  padding-left: 5%;
+  padding-right: 5%;
+}
+svg.icon {
+  width: 1rem;
+  height: 1rem;
+  fill: currentColor !important;
+  vertical-align: bottom;
+}
+h1.title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0.6rem;
+  text-transform: uppercase;
+}
+.breadcrumb {
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin: 0.6rem;
+  text-transform: uppercase;
+  @include phone {
+    font-size: 1.3rem;
+  }
+  &-primary {
+    color: $secondary-color;
+  }
+}
+
+.link:hover {
+  text-decoration: underline;
+}

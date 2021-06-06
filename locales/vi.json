@@ -1,0 +1,68 @@
+
+{
+  "footer": {
+  "faq": "Câu hỏi thường gặp",
+  "contact": "Liên hệ",
+  "items": "Vật phẩm",
+  "termandcondition": "Điều khoản",
+  "leaderboard": "Bảng xếp hạng"
+},
+"sidebar": {
+  "lobby": "Sảnh chờ",
+  "topup": "Nạp tiền",
+  "claim": "Nhận thưởng",
+  "contact": "Liên hệ",
+  "about": "Về chúng tôi"
+},
+"button" : {
+  "signin": "Đăng nhập với STEAM",
+  "addfund": "Nạp tiền",
+  "open": "Mở",
+  "opening": "Đang mở...",
+  "normal" : "Bình thường",
+  "fast" : "Nhanh",
+  "tryagain": "Thử lại",
+  "claim" : "Nhận",
+  "sell": "Bán",
+  "sold": "Đã bạn",
+  "save": "Lưu",
+  "skin": "Nạp bằng trang phục",
+    "case" : "Rương",
+    "sell_all": "Bán tất cả"
+},
+"profile" : {
+  "note_url": "Trước khi bạn sẽ mở hòm, vui lòng xác nhận rằng ĐƯỜNG DẪN GIAO DỊCH đang hoạt động và túi đồ của bạn đã mở.",
+  "trade_url" :"Xem ĐƯỜNG DẪN GIAO DỊCH",
+  "title_social" : "Kết nối với mạng xã hội",
+  "subtitle_social" : "Và nhận miễn phí số dư!",
+  "welcome": "Chào,"
+},
+"title": {
+  "purchase_history": "Lịch sử giao dịch",
+  "my_items" : "Vật phẩm",
+  "recent_items" : "Vật phẩm gần đây",
+  "home": "Trang chủ",
+  "profile": "Hồ sơ",
+  "topup_balance": "Nạp tiền vào ví",
+  "items_in" : "Vật phẩm trong",
+  "your_win" : "Bạn đã thắng"
+},
+
+"status": {
+  "all": "Tất cả",
+  "pending": "Đang chờ",
+  "processing": "Đang xử lí",
+  "accepted": "Đã chấp nhận",
+  "sold":"Đã bán",
+  "upgraded": "Đã nâng cấp",
+  "opened": "Đã mở",
+  "contract": "Hợp đồng"
+},
+"history": {
+  "box" : "Rương",
+  "item": "Vật phẩm",
+  "price" : "Giá",
+  "nodata": "Không có dữ liệu"
+}
+
+}

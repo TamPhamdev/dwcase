@@ -1,0 +1,74 @@
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-center-column {
+  @include flex-center;
+  flex-direction: column;
+}
+
+@mixin flex-center-vert {
+  display: flex;
+  align-items: center;
+}
+
+@mixin flex-center-horiz {
+  display: flex;
+  justify-content: center;
+}
+@mixin pseudo {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+@mixin text {
+  word-wrap: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: bold;
+}
+
+
+$sm: 576;
+$md: 768;
+$lg: 992;
+$xl: 1200;
+$xxl: 1400;
+@mixin phone  {
+  @media only screen and (max-width: $sm * 1px) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media only screen and (max-width: $md * 1px) {
+    @content;
+  }
+}
+
+@mixin large {
+  @media only screen and (max-width: $lg * 1px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media only screen and (max-width: $xl * 1px) {
+    @content;
+  }
+}
+@mixin wide {
+  @media only screen and (max-width: $xxl * 1px) {
+    @content;
+  }
+}

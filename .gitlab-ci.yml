@@ -1,0 +1,154 @@
+variables:
+
+  PJ_NAME: 'game'
+  DEV: '/sources/dwcase'
+  DEV_DIR: $DEV/dev/$PJ_NAME
+  PRD: '/sources/dwcase'
+  PRD_DIR: $PRD/prd/$PJ_NAME
+
+
+stages:
+  - prepare
+  - build
+  - deploy
+
+############################
+#    DEV - LINUX50         #
+############################
+
+dev-prepare:
+  stage: prepare
+  script:
+    - 'if [ -f package-lock.json ]; then rm -f package-lock.json; fi'
+    - npm install --progress=false
+  only:
+    refs:
+      - develop
+      - /^feature\/.*$/
+      - /^hotfix\/.*$/
+    variables:
+      - $CI_COMMIT_MESSAGE =~ /^dev\d+\.\d+\.\d+/
+  except:
+    - web
+  tags:
+    - w3_dev
+
+dev-build:
+  stage: build
+  variables:
+    GIT_STRATEGY: none
+  script:
+      - npm run build:stg
+  only:
+    refs:
+      - develop
+      - /^feature\/.*$/
+      - /^hotfix\/.*$/
+    variables:
+      - $CI_COMMIT_MESSAGE =~ /^dev\d+\.\d+\.\d+/
+  except:
+    - web
+  tags:
+    - w3_dev
+
+dev-deploy:
+  stage: deploy
+  variables:
+    GIT_STRATEGY: none
+  before_script:
+    - rm -rf .git pages layouts components directives
+    - 'if [ ! -d $DEV_DIR ]; then sudo mkdir -p $DEV_DIR ; fi'
+  script:
+    - \cp -Rf . $DEV_DIR
+    - cd $DEV_DIR
+#    - pm2 start npm  --name dwcase-game -- start
+
+  after_script:
+    - pm2 list
+    - sudo pm2 restart dwcase-game --update-env
+  only:
+    refs:
+      - develop
+      - /^feature\/.*$/
+      - /^hotfix\/.*$/
+    variables:
+      - $CI_COMMIT_MESSAGE =~ /^dev\d+\.\d+\.\d+/
+  except:
+    - web
+  tags:
+    - w3_dev
+
+
+
+############################
+#    PRD - LINUX50         #
+############################
+
+admin-prd-prepare:
+  stage: prepare
+  script:
+    - 'if [ -f package-lock.json ]; then rm -f package-lock.json; fi'
+    - npm install --progress=false
+  only:
+    refs:
+      - tags
+      - web
+    variables:
+        - $CI_COMMIT_REF_NAME =~ /^v\d+\.\d+\.\d+$/
+  tags:
+    - w3_dev
+
+admin-prd-build:
+  stage: build
+  variables:
+    GIT_STRATEGY: none
+  script:
+    - npm run build
+  only:
+    refs:
+      - tags
+      - web
+    variables:
+      - $CI_COMMIT_REF_NAME =~ /^v\d+\.\d+\.\d+$/
+  tags:
+    - w3_dev
+
+admin-prd-deploy:
+  stage: deploy
+  variables:
+    GIT_STRATEGY: none
+  before_script:
+    - rm -rf .git pages layouts components directives
+    - 'if [ ! -d $PRD_DIR ]; then sudo mkdir -p $PRD_DIR ; fi'
+  script:
+#    - \cp -Rf . $PRD_DIR
+    - ls -la
+    - cd $PRD_DIR
+#    - pm2 start npm  --name dwcase-game -- start
+  only:
+    refs:
+      - tags
+    variables:
+      - $CI_COMMIT_REF_NAME =~ /^v\d+\.\d+\.\d+$/
+  except:
+    - web
+  tags:
+    - w3_dev
+
+admin-prd-zip:
+  stage: deploy
+  variables:
+    GIT_STRATEGY: none
+  script:
+    - zip -qr dwcase-prd-$CI_COMMIT_REF_NAME.zip .
+    - mv  dwcase-prd-$CI_COMMIT_REF_NAME.zip /sources/DOWNLOAD
+  only:
+    refs:
+      - web
+    variables:
+      - $CI_COMMIT_REF_NAME =~ /^v\d+\.\d+\.\d+$/
+  except:
+    - tags
+  tags:
+    - w3_dev
+

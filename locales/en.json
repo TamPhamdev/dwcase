@@ -1,0 +1,64 @@
+{  "footer": {
+  "faq": "FAQ",
+  "contact": "Contact",
+  "items": "Items",
+  "termandcondition": "Term and Condition",
+  "leaderboard": "Leader board"
+},
+"sidebar": {
+  "lobby": "Lobby",
+  "topup": "Top up",
+  "claim": "Claim",
+  "contact": "Contact ",
+  "about": "About us"
+},
+  "button" : {
+    "signin": "Sign in with STEAM",
+    "addfund": "Add funds",
+    "open": "Open",
+    "opening": "Opening...",
+    "normal" : "Normal",
+    "fast" : "Fast",
+    "tryagain": "Try again",
+    "claim" : "Claim",
+    "sell": "Sell for",
+    "sold": "Sold",
+    "save": "Save",
+    "skin": "Pay with skin",
+    "case" : "Cases",
+    "sell_all": "Sell all for"
+  },
+  "profile" : {
+    "note_url": "Before you will open cases please verify that your TRADE OFFER URL is working properly and your inventory is open.",
+    "trade_url" :"View your trade offer url",
+    "title_social" : "Connect with social network ",
+    "subtitle_social" : "And get free balance!",
+    "welcome": "Hi,"
+  },
+  "title": {
+    "purchase_history": "Purchase History",
+    "my_items" : "My Items",
+    "recent_items" : "Recent items",
+    "home": "Home",
+    "profile": "Profile",
+    "topup_balance": "TOP UP BALANCE",
+    "items_in" : "Items in",
+    "your_win" : "Your Wins"
+  },
+  "status": {
+    "all": "All",
+    "pending": "Pending",
+    "processing": "Processing",
+    "accepted": "Accepted",
+    "sold":"Sold",
+    "upgraded": "Upgraded",
+    "opened": "Opened",
+    "contract": "Contract"
+  },
+  "history": {
+    "box" : "Box",
+    "item": "Items",
+    "price" : "Price",
+    "nodata": "No Data"
+  }
+}
